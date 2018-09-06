@@ -1,0 +1,28 @@
+{
+  "name": "cubezix",
+  "version": "1.0.0",
+  "description": "rest webservice for patient",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node app.js"
+  },
+  "author": "Medas",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcrypt": "^2.0.1",
+    "hdb": "^0.16.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.19.2",
+    "mysql": "^2.15.0",
+    "restify": "^6.4.0",
+    "restify-cors-middleware": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "request": "^2.87.0",
+    "should": "^13.2.1"
+  }
+}
