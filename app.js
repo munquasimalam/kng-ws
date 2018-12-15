@@ -1,37 +1,8 @@
 var restify = require('restify');
 var plugins = require('restify').plugins;
 const corsMiddleware = require('restify-cors-middleware')
-
-// var mysql = require('mysql');
-// var hdb = require('hdb');
-
-
  var config = require('./config/config');
-
-// //Mysql  Database connection
-// db = mysql.createConnection(config.mysqldb);
-// db.connect((err) => {
-//     if (err) {
-//         console.log("connection lost: ", err);
-//         // throw err;
-//     }
-//     console.log("mysqldb '", config.mysqldb.database, "' Connected.");
-// });
-
-
-
-
-// Hana Database connection
-// hanaConn = hdb.createClient(config.hanadb);
-// hanaConn.connect((err) => {
-//     if (err) {
-//         console.log("connection lost: ", err);
-//         // throw err;
-//     }
-//     console.log("hanadb '", config.hanadb.database, "' Connected.");
-// });
-
-
+ 
 // server started
 var server = restify.createServer({
     name: 'docAPI',
@@ -50,7 +21,6 @@ server.pre(cors.preflight)
 server.pre((req, res, next) => {
     let pieces = req.url.replace(/^\/+/, '').split('/');
     let version = pieces[0];
-    console.log(version);
     version = version.replace(/v(\d{1})\.(\d{1})\.(\d{1})/, '$1.$2.$3');
     version = version.replace(/v(\d{1})\.(\d{1})/, '$1.$2.0');
     version = version.replace(/v(\d{1})/, '$1.0.0');
@@ -69,5 +39,5 @@ server.use(cors.actual);
 
 server.listen(config.port, () => {
     require('./routes')(server);
-    console.log("mysql Hana server started on port: ", config.port);
+    console.log("dmt-kng-ws started on port: ", config.port);
 });
